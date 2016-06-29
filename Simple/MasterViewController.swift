@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import HPReorderTableView
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
+    var goalName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,23 +41,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
-            abort()
+        
+        let alert = UIAlertController(title: "Новая Цель", message: "", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Название"
+            textField.delegate = self
         }
+        let action = UIAlertAction(title: "OK", style: .Default) { [weak self] (action) in
+            guard let sSelf = self where sSelf.goalName?.characters.count > 0 else { return }
+            let context = sSelf.fetchedResultsController.managedObjectContext
+            let entity = sSelf.fetchedResultsController.fetchRequest.entity!
+            let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Goal
+            
+            newManagedObject.timeStamp = NSDate()
+            newManagedObject.name = sSelf.goalName
+            sSelf.appDelegate.saveContext()
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+
     }
 
     // MARK: - Segues
@@ -85,7 +90,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Goal
         self.configureCell(cell, withObject: object)
         return cell
     }
@@ -99,20 +104,24 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
             context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
-                
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //print("Unresolved error \(error), \(error.userInfo)")
-                abort()
-            }
+            appDelegate.saveContext()
         }
     }
-
-    func configureCell(cell: UITableViewCell, withObject object: NSManagedObject) {
-        cell.textLabel!.text = object.valueForKey("timeStamp")!.description
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        if var objs = self.fetchedResultsController.fetchedObjects {
+            swap(&objs[sourceIndexPath.row], &objs[destinationIndexPath.row])
+        }
+        
+    }
+    
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func configureCell(cell: UITableViewCell, withObject object: Goal) {
+        cell.textLabel!.text = object.name
     }
 
     // MARK: - Fetched results controller
@@ -124,7 +133,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("Goal", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
@@ -176,7 +185,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .Delete:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! NSManagedObject)
+                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! Goal)
             case .Move:
                 tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }
@@ -197,3 +206,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
 }
 
+
+extension MasterViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(textField: UITextField) {
+         goalName = textField.text
+    }
+}
