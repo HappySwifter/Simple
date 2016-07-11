@@ -1,8 +1,8 @@
 //
-//  Goal+CoreDataProperties.swift
+//  Action+CoreDataProperties.swift
 //  Simple
 //
-//  Created by Артем Валиев on 29.06.16.
+//  Created by Artem Valiev on 11.07.16.
 //  Copyright © 2016 Артем Валиев. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,9 +12,11 @@
 import Foundation
 import CoreData
 
-extension Goal {
+extension Action {
 
-    @NSManaged var timeStamp: NSDate?
     @NSManaged var name: String?
+    @NSManaged var priority: NSNumber?
+    @NSManaged var timestamp: NSDate?
+    @NSManaged var goal: Goal?
 
 }

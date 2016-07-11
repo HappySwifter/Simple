@@ -1,16 +1,16 @@
 //
-//  Goal.swift
+//  Action.swift
 //  Simple
 //
-//  Created by Артем Валиев on 29.06.16.
+//  Created by Artem Valiev on 11.07.16.
 //  Copyright © 2016 Артем Валиев. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-
-class Goal: NSManagedObject {
+@objc(Action)
+class Action: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
