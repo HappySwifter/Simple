@@ -46,7 +46,7 @@ public class Model: NSObject {
     
     func getGoals() -> [Goal] {
         let fetchRequest = NSFetchRequest(entityName: String(Goal))
-        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
@@ -60,44 +60,49 @@ public class Model: NSObject {
         }
     }
     
-    func deleteGoal(goal: Goal) {
-        guard let name = goal.name else {
-            return
-        }
-        let fetchRequest = NSFetchRequest(entityName: String(Goal))
-        let predicate = NSPredicate(format: "name = %@", name)
-        fetchRequest.predicate = predicate
-        do {
-            if let results = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Goal] {
-                for result in results {
-                    managedObjectContext.deleteObject(result)
-                }
-            }
-        } catch {
-            let nserror = error as NSError
-            print("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-        saveContext()
-    }
+
     
     
     //MARK - Action
     
-    func insertAction(goal: Goal, name: String, priority: Int) -> Action {
+    func insertAction(goal: Goal, name: String) -> Action {
         var action = actionWithName(name)
         if action == .None  {
             action = NSEntityDescription.insertNewObjectForEntityForName(String(Action), inManagedObjectContext: managedObjectContext) as? Action
             action?.name = name
         }
         action?.timestamp = NSDate()
-        action?.priority = priority
+        action?.priority = getLastActionPriority() + 1
         
         let goal = goalWithName(goal.name!)
         action?.goal = goal
-        
+        print("insert action. Name: \(action!.name), Priority: \(action!.priority)")
         saveContext()
         return action!
         
+    }
+    
+    func getLastActionPriority() -> Int {
+        print("getting getLastActionPriority")
+        var result = 0
+        let fetchRequest = NSFetchRequest(entityName: String(Action))
+        fetchRequest.fetchLimit = 1
+        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            if let results = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Action] {
+                if let action = results.first {
+                    result = action.priority!.integerValue
+                } else {
+                    print("no actions in db")
+                }
+            }
+        } catch {
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        print("getLastActionPriority - \(result)")
+        return result
     }
     
     
@@ -117,21 +122,26 @@ public class Model: NSObject {
         return .None
     }
     
-    func getActions() -> [Action] {
-        let fetchRequest = NSFetchRequest(entityName: String(Action))
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do {
-            if let result = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Action] {
-                return result
-            } else {
-                return []
-            }
-        } catch _ as NSError {
-            return []
-        }
-    }
+
+    
+//    func getActions(forGoal goal: Goal) -> [Action] {
+//        let fetchRequest = NSFetchRequest(entityName: String(Action))
+//        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        
+//        do {
+//            if let result = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Action] {
+//                print("returning actions:")
+//                print(result.map{ $0.priority! })
+//                return result
+//            } else {
+//                return []
+//            }
+//        } catch _ as NSError {
+//            return []
+//        }
+//    }
+    
 
 
 //MARK - Core Data stack

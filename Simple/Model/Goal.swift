@@ -14,4 +14,9 @@ class Goal: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
+    func deleteGoal() {
+        let model = Model.instanse
+        Model.instanse.managedObjectContext.deleteObject(self)
+        model.saveContext()
+    }
 }

@@ -61,6 +61,7 @@
 		02E521E91D34155A007949E6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
 				BEF8A3491D23B9A00042F601 /* Info.plist */,
 				BEF8A3461D23B9A00042F601 /* LaunchScreen.storyboard */,
 				BEF8A3411D23B9A00042F601 /* Main.storyboard */,
@@ -129,10 +130,9 @@
 		BEF8A3371D23B9A00042F601 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
-				02E5222C1D342C8C007949E6 /* View */,
-				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
-				02E5222B1D342C83007949E6 /* Controllers */,
 				02E521EA1D34156E007949E6 /* Model */,
+				02E5222C1D342C8C007949E6 /* View */,
+				02E5222B1D342C83007949E6 /* Controllers */,
 				02E521E91D34155A007949E6 /* Support */,
 			);
 			path = Simple;

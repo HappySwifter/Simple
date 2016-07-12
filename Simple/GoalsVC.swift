@@ -27,10 +27,12 @@ class GoalsVC: UITableViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        refreshData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        goals.removeAll()
         // Dispose of any resources that can be recreated.
     }
 
@@ -67,6 +69,10 @@ class GoalsVC: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath)
         cell.textLabel?.text = goals[indexPath.row].name
+        let actionSet = goals[indexPath.row].actions
+        let firstAction = (actionSet?.allObjects as! [Action]).sort { Int($0.0.priority!) > Int($0.1.priority!) }.first
+        cell.detailTextLabel?.text = firstAction?.name
+
         return cell
     }
 
@@ -77,18 +83,12 @@ class GoalsVC: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            Model.instanse.deleteGoal(goals[indexPath.row])
+            let goal = goals[indexPath.row]
+            goal.deleteGoal()
             refreshData()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
         }
     }
     
-    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-//        if var objs = self.fetchedResultsController.fetchedObjects {
-//            swap(&objs[sourceIndexPath.row], &objs[destinationIndexPath.row])
-//        }
-        
-    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowActionsSegue", sender: indexPath)

@@ -14,4 +14,10 @@ class Action: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
+    
+    func deleteAction() {
+        let model = Model.instanse
+        Model.instanse.managedObjectContext.deleteObject(self)
+        model.saveContext()
+    }
 }
