@@ -10,11 +10,13 @@
 		02E521E81D340E3C007949E6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E521E71D340E3C007949E6 /* Model.swift */; };
 		02E522271D342B3D007949E6 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522231D342B3D007949E6 /* Goal+CoreDataProperties.swift */; };
 		02E522281D342B3D007949E6 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522241D342B3D007949E6 /* Goal.swift */; };
-		02E522291D342B3D007949E6 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522251D342B3D007949E6 /* Action+CoreDataProperties.swift */; };
-		02E5222A1D342B3D007949E6 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522261D342B3D007949E6 /* Action.swift */; };
 		02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222D1D342CA2007949E6 /* GoalCell.swift */; };
 		02E522301D342CAC007949E6 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222F1D342CAC007949E6 /* ActionCell.swift */; };
 		627E577CC99E2679B4021EDD /* Pods_Simple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5ABDFDEFF8EAFE969BA80A7 /* Pods_Simple.framework */; };
+		BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
+		BE607F5A1D352A0000D02127 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
+		BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */; };
+		BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5D1D352A9300D02127 /* CheckBox.swift */; };
 		BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A3381D23B9A00042F601 /* AppDelegate.swift */; };
 		BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */; };
 		BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33D1D23B9A00042F601 /* GoalsVC.swift */; };
@@ -28,10 +30,12 @@
 		02E521E71D340E3C007949E6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		02E522231D342B3D007949E6 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Goal+CoreDataProperties.swift"; path = "Model/Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		02E522241D342B3D007949E6 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Goal.swift; path = Model/Goal.swift; sourceTree = "<group>"; };
-		02E522251D342B3D007949E6 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		02E522261D342B3D007949E6 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
 		02E5222D1D342CA2007949E6 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		02E5222F1D342CAC007949E6 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BE607F581D352A0000D02127 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
+		BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxLayer.swift; sourceTree = "<group>"; };
+		BE607F5D1D352A9300D02127 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		BEF8A3351D23B9A00042F601 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF8A3381D23B9A00042F601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEF8A33B1D23B9A00042F601 /* Simple.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Simple.xcdatamodel; sourceTree = "<group>"; };
@@ -75,8 +79,8 @@
 			children = (
 				02E522231D342B3D007949E6 /* Goal+CoreDataProperties.swift */,
 				02E522241D342B3D007949E6 /* Goal.swift */,
-				02E522251D342B3D007949E6 /* Action+CoreDataProperties.swift */,
-				02E522261D342B3D007949E6 /* Action.swift */,
+				BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */,
+				BE607F581D352A0000D02127 /* Action.swift */,
 				BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */,
 				02E521E71D340E3C007949E6 /* Model.swift */,
 			);
@@ -95,6 +99,8 @@
 		02E5222C1D342C8C007949E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE607F5D1D352A9300D02127 /* CheckBox.swift */,
+				BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */,
 				02E5222D1D342CA2007949E6 /* GoalCell.swift */,
 				02E5222F1D342CAC007949E6 /* ActionCell.swift */,
 			);
@@ -270,15 +276,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E521E81D340E3C007949E6 /* Model.swift in Sources */,
-				02E5222A1D342B3D007949E6 /* Action.swift in Sources */,
+				BE607F5A1D352A0000D02127 /* Action.swift in Sources */,
 				BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */,
 				02E522271D342B3D007949E6 /* Goal+CoreDataProperties.swift in Sources */,
-				02E522291D342B3D007949E6 /* Action+CoreDataProperties.swift in Sources */,
+				BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */,
 				02E522301D342CAC007949E6 /* ActionCell.swift in Sources */,
 				BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */,
 				BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */,
 				BEF8A3401D23B9A00042F601 /* ActionsVC.swift in Sources */,
 				02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */,
+				BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */,
+				BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */,
 				02E522281D342B3D007949E6 /* Goal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

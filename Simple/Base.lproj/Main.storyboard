@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--GoalsVC-->
@@ -62,13 +63,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="fmb-73-e78">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="fmb-73-e78" customClass="ActionCell" customModule="Simple" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fmb-73-e78" id="OEt-Lf-vUi">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCY-i7-Sh3" customClass="CheckBox" customModule="Simple" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="4" width="35" height="35"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="0.2901960784" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="8M1-9I-mtF"/>
+                                                <constraint firstAttribute="width" constant="35" id="lQm-ss-M8j"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="strokeFactor">
+                                                    <real key="value" value="0.068359375"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="insetFactor">
+                                                    <real key="value" value="0.171875"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="markInsetFactor">
+                                                    <real key="value" value="0.34000000000000002"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkBoxTapped:" destination="lsw-Xa-NT9" eventType="touchUpInside" id="UyT-za-knT"/>
+                                            </connections>
+                                        </view>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5R0-GG-0nR">
+                                            <rect key="frame" x="59" y="6" width="533" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="5R0-GG-0nR" secondAttribute="trailing" constant="8" id="2R7-Jo-yxq"/>
+                                        <constraint firstItem="5R0-GG-0nR" firstAttribute="top" secondItem="OEt-Lf-vUi" secondAttribute="top" constant="6" id="UTs-J9-M4G"/>
+                                        <constraint firstItem="tCY-i7-Sh3" firstAttribute="leading" secondItem="OEt-Lf-vUi" secondAttribute="leadingMargin" constant="8" id="q8o-5B-CJ2"/>
+                                        <constraint firstItem="5R0-GG-0nR" firstAttribute="leading" secondItem="tCY-i7-Sh3" secondAttribute="trailing" constant="8" id="rdI-Gk-eSQ"/>
+                                        <constraint firstItem="tCY-i7-Sh3" firstAttribute="centerY" secondItem="OEt-Lf-vUi" secondAttribute="centerY" id="wrr-9A-e3w"/>
+                                        <constraint firstAttribute="bottom" secondItem="5R0-GG-0nR" secondAttribute="bottom" constant="7" id="zsG-Qe-EWS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBox" destination="tCY-i7-Sh3" id="YeI-TE-Ppf"/>
+                                    <outlet property="nameTextField" destination="5R0-GG-0nR" id="8qW-x7-ADH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

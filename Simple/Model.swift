@@ -76,6 +76,7 @@ public class Model: NSObject {
         
         let goal = goalWithName(goal.name!)
         action?.goal = goal
+        action?.done = false
         print("insert action. Name: \(action!.name), Priority: \(action!.priority)")
         saveContext()
         return action!
