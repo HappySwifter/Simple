@@ -13,12 +13,11 @@ import HPReorderTableView
 class GoalsVC: UITableViewController {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var goalName: String?
-    var goals = [Goal]()
-    
+    var activeGoals = [Goal]()
+    var archievedGoals = [Goal]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -32,8 +31,8 @@ class GoalsVC: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        goals.removeAll()
-        // Dispose of any resources that can be recreated.
+        activeGoals.removeAll()
+        archievedGoals.removeAll()
     }
 
     func insertNewObject(sender: AnyObject) {
@@ -55,6 +54,10 @@ class GoalsVC: UITableViewController {
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    func insertNewArchivedGoal() {
+    
+    }
 
     // MARK: - Table View
 
@@ -63,13 +66,13 @@ class GoalsVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goals.count
+        return activeGoals.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath)
-        cell.textLabel?.text = goals[indexPath.row].name
-        let actionSet = goals[indexPath.row].actions
+        cell.textLabel?.text = activeGoals[indexPath.row].name
+        let actionSet = activeGoals[indexPath.row].actions
         let firstAction = (actionSet?.allObjects as! [Action]).sort { Int($0.0.priority!) > Int($0.1.priority!) }.first
         cell.detailTextLabel?.text = firstAction?.name
 
@@ -83,7 +86,7 @@ class GoalsVC: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let goal = goals[indexPath.row]
+            let goal = activeGoals[indexPath.row]
             goal.deleteGoal()
             refreshData()
         }
@@ -98,7 +101,7 @@ class GoalsVC: UITableViewController {
         if segue.identifier == "ShowActionsSegue" {
             if let contr = segue.destinationViewController as? ActionsVC {
                 if let indexPath = sender as? NSIndexPath {
-                     contr.goal = goals[indexPath.item]
+                     contr.goal = activeGoals[indexPath.item]
                 }
             }
         }
@@ -114,7 +117,9 @@ class GoalsVC: UITableViewController {
 
   
     func refreshData() {
-        goals = Model.instanse.getGoals()
+        let allGoals = Model.instanse.getGoals()
+        activeGoals = allGoals.filter { Bool($0.archieved!) == false }
+        archievedGoals = allGoals.filter { Bool($0.archieved!) == true }
         tableView.reloadData()
     }
 

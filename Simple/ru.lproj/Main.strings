@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "dwA-6C-i2d"; */
+"dwA-6C-i2d.text" = "Title";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "hQJ-EL-lfF"; */
+"hQJ-EL-lfF.text" = "Subtitle";
+
+/* Class = "UITextField"; placeholder = "Новое действие"; ObjectID = "kTg-6V-ctZ"; */
+"kTg-6V-ctZ.placeholder" = "Новое действие";

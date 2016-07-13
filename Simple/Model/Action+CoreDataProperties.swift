@@ -19,5 +19,6 @@ extension Action {
     @NSManaged var timestamp: NSDate?
     @NSManaged var done: NSNumber?
     @NSManaged var goal: Goal?
+   
 
 }

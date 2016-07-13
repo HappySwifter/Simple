@@ -12,11 +12,21 @@ import CoreData
 
 public class Model: NSObject {
 
+    enum ModelResult: ErrorType {
+        case goalsLimit
+        case NotConnected
+        case NoData
+        case NotLogined
+        case ok
+        case error(errorDesc: String)
+    }
+    
     static let instanse = Model()
     // MARK: - Core Data stack
    
     
-    func saveNewGoal(name: String) -> Goal {
+    func saveNewGoal(name: String, result: (ModelResult -> Void)? = nil)  {
+        
         var entity = goalWithName(name)
         if entity == .None  {
             entity = NSEntityDescription.insertNewObjectForEntityForName(String(Goal), inManagedObjectContext: managedObjectContext) as? Goal
@@ -24,8 +34,13 @@ public class Model: NSObject {
         }
         entity?.timeStamp = NSDate()
         entity?.actions = []
+        entity?.archieved = false
+        let goals = getGoals()
+        if goals.count >= 3 {
+            entity?.archieved = true
+        }
         saveContext()
-        return entity!
+        result?(.ok)
     }
     
     func goalWithName(name: String) -> Goal? {

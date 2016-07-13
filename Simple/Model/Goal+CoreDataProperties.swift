@@ -17,5 +17,5 @@ extension Goal {
     @NSManaged var name: String?
     @NSManaged var timeStamp: NSDate?
     @NSManaged var actions: NSSet?
-
+    @NSManaged var archieved: NSNumber?
 }

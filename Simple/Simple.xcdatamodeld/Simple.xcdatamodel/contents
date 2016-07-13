@@ -8,6 +8,7 @@
         <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="actions" inverseEntity="Goal" syncable="YES"/>
     </entity>
     <entity name="Goal" representedClassName=".Goal">
+        <attribute name="archieved" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
@@ -16,7 +17,7 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Action" positionX="475" positionY="194" width="128" height="118"/>
-        <element name="Goal" positionX="261" positionY="189" width="128" height="88"/>
+        <element name="Action" positionX="475" positionY="194" width="128" height="120"/>
+        <element name="Goal" positionX="261" positionY="189" width="128" height="105"/>
     </elements>
 </model>
