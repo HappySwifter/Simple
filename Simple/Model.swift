@@ -35,8 +35,8 @@ public class Model: NSObject {
         entity?.timeStamp = NSDate()
         entity?.actions = []
         entity?.archieved = false
-        let goals = getGoals()
-        if goals.count >= 3 {
+        let activeGoals = getActiveGoals()
+        if activeGoals.count > 3 {
             entity?.archieved = true
         }
         saveContext()
@@ -75,7 +75,23 @@ public class Model: NSObject {
         }
     }
     
-
+    func getActiveGoals() -> [Goal] {
+        let fetchRequest = NSFetchRequest(entityName: String(Goal))
+        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: true)
+        let predicate = NSPredicate(format: "archieved == NO")
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            if let result = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Goal] {
+                return result
+            } else {
+                return []
+            }
+        } catch _ as NSError {
+            return []
+        }
+    }
     
     
     //MARK - Action

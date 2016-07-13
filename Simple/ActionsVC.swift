@@ -25,6 +25,7 @@ class ActionsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = goal.name
         self.tableView.keyboardDismissMode = .OnDrag
         
         viewSwitcher.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
