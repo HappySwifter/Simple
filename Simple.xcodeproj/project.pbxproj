@@ -99,8 +99,7 @@
 		02E5222C1D342C8C007949E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BE607F5D1D352A9300D02127 /* CheckBox.swift */,
-				BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */,
+				BE607F5F1D36439E00D02127 /* CheckBox */,
 				02E5222D1D342CA2007949E6 /* GoalCell.swift */,
 				02E5222F1D342CAC007949E6 /* ActionCell.swift */,
 			);
@@ -113,6 +112,15 @@
 				E5ABDFDEFF8EAFE969BA80A7 /* Pods_Simple.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE607F5F1D36439E00D02127 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				BE607F5D1D352A9300D02127 /* CheckBox.swift */,
+				BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */,
+			);
+			name = CheckBox;
 			sourceTree = "<group>";
 		};
 		BEF8A32C1D23B9A00042F601 = {
