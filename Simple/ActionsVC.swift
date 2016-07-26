@@ -157,6 +157,9 @@ extension ActionsVC: UITextFieldDelegate {
             textField.text = ""
         } else {
             let indexPath = indexPathForView(textField)
+            let action = actions[indexPath.row]
+            action.name = textField.text
+            Model.instanse.saveContext()
         }
 
     }
