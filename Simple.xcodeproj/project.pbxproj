@@ -40,6 +40,7 @@
 		BE607F601D36811F00D02127 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BE607F611D36811F00D02127 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		BE607F631D36832300D02127 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 2.xcdatamodel"; sourceTree = "<group>"; };
 		BEF8A3351D23B9A00042F601 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF8A3381D23B9A00042F601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEF8A33B1D23B9A00042F601 /* Simple.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Simple.xcdatamodel; sourceTree = "<group>"; };
@@ -488,9 +489,10 @@
 		BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */,
 				BEF8A33B1D23B9A00042F601 /* Simple.xcdatamodel */,
 			);
-			currentVersion = BEF8A33B1D23B9A00042F601 /* Simple.xcdatamodel */;
+			currentVersion = BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */;
 			path = Simple.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
