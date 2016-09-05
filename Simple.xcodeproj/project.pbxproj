@@ -25,7 +25,35 @@
 		BEF8A3431D23B9A00042F601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF8A3411D23B9A00042F601 /* Main.storyboard */; };
 		BEF8A3451D23B9A00042F601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF8A3441D23B9A00042F601 /* Assets.xcassets */; };
 		BEF8A3481D23B9A00042F601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF8A3461D23B9A00042F601 /* LaunchScreen.storyboard */; };
+		BEFB8DE41D7090F800FE3929 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFB8DCF1D70905200FE3929 /* NotificationCenter.framework */; };
+		BEFB8DE71D7090F800FE3929 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB8DE61D7090F800FE3929 /* TodayViewController.swift */; };
+		BEFB8DEA1D7090F800FE3929 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB8DE81D7090F800FE3929 /* MainInterface.storyboard */; };
+		BEFB8DEE1D7090F800FE3929 /* Just Do It.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BEFB8DE31D7090F800FE3929 /* Just Do It.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEFB8DEC1D7090F800FE3929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEF8A32D1D23B9A00042F601 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEFB8DE21D7090F800FE3929;
+			remoteInfo = "Just Do It";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEFB8DDE1D70905200FE3929 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BEFB8DEE1D7090F800FE3929 /* Just Do It.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02E521E71D340E3C007949E6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -50,6 +78,11 @@
 		BEF8A3441D23B9A00042F601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEF8A3471D23B9A00042F601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEF8A3491D23B9A00042F601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFB8DCF1D70905200FE3929 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		BEFB8DE31D7090F800FE3929 /* Just Do It.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Just Do It.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFB8DE61D7090F800FE3929 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		BEFB8DE91D7090F800FE3929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		BEFB8DEB1D7090F800FE3929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D223276324C883054DB831B1 /* Pods-Simple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.release.xcconfig"; sourceTree = "<group>"; };
 		E5ABDFDEFF8EAFE969BA80A7 /* Pods_Simple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC9AA7ACDE05ABDFC0AC378 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +94,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				627E577CC99E2679B4021EDD /* Pods_Simple.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEFB8DE01D7090F800FE3929 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFB8DE41D7090F800FE3929 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				E5ABDFDEFF8EAFE969BA80A7 /* Pods_Simple.framework */,
+				BEFB8DCF1D70905200FE3929 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF8A3371D23B9A00042F601 /* Simple */,
+				BEFB8DE51D7090F800FE3929 /* Just Do It */,
 				BEF8A3361D23B9A00042F601 /* Products */,
 				E62A07EAAFFE91FD7C3C99AC /* Pods */,
 				2C090F94547F43B6AB9848D0 /* Frameworks */,
@@ -158,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF8A3351D23B9A00042F601 /* Simple.app */,
+				BEFB8DE31D7090F800FE3929 /* Just Do It.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +216,16 @@
 				02E521E91D34155A007949E6 /* Support */,
 			);
 			path = Simple;
+			sourceTree = "<group>";
+		};
+		BEFB8DE51D7090F800FE3929 /* Just Do It */ = {
+			isa = PBXGroup;
+			children = (
+				BEFB8DE61D7090F800FE3929 /* TodayViewController.swift */,
+				BEFB8DE81D7090F800FE3929 /* MainInterface.storyboard */,
+				BEFB8DEB1D7090F800FE3929 /* Info.plist */,
+			);
+			path = "Just Do It";
 			sourceTree = "<group>";
 		};
 		E62A07EAAFFE91FD7C3C99AC /* Pods */ = {
@@ -196,15 +250,34 @@
 				BEF8A3331D23B9A00042F601 /* Resources */,
 				0448EA8E703F4EFDE320B651 /* Embed Pods Frameworks */,
 				C32419CFA892764B0CD69550 /* Copy Pods Resources */,
+				BEFB8DDE1D70905200FE3929 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BEFB8DED1D7090F800FE3929 /* PBXTargetDependency */,
 			);
 			name = Simple;
 			productName = Simple;
 			productReference = BEF8A3351D23B9A00042F601 /* Simple.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BEFB8DE21D7090F800FE3929 /* Just Do It */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEFB8DEF1D7090F800FE3929 /* Build configuration list for PBXNativeTarget "Just Do It" */;
+			buildPhases = (
+				BEFB8DDF1D7090F800FE3929 /* Sources */,
+				BEFB8DE01D7090F800FE3929 /* Frameworks */,
+				BEFB8DE11D7090F800FE3929 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Just Do It";
+			productName = "Just Do It";
+			productReference = BEFB8DE31D7090F800FE3929 /* Just Do It.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -218,6 +291,11 @@
 				TargetAttributes = {
 					BEF8A3341D23B9A00042F601 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 63X37KGE26;
+					};
+					BEFB8DE21D7090F800FE3929 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 63X37KGE26;
 					};
 				};
 			};
@@ -235,6 +313,7 @@
 			projectRoot = "";
 			targets = (
 				BEF8A3341D23B9A00042F601 /* Simple */,
+				BEFB8DE21D7090F800FE3929 /* Just Do It */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +326,14 @@
 				BEF8A3481D23B9A00042F601 /* LaunchScreen.storyboard in Resources */,
 				BEF8A3451D23B9A00042F601 /* Assets.xcassets in Resources */,
 				BEF8A3431D23B9A00042F601 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEFB8DE11D7090F800FE3929 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFB8DEA1D7090F800FE3929 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +409,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEFB8DDF1D7090F800FE3929 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFB8DE71D7090F800FE3929 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEFB8DED1D7090F800FE3929 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEFB8DE21D7090F800FE3929 /* Just Do It */;
+			targetProxy = BEFB8DEC1D7090F800FE3929 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BEF8A3411D23B9A00042F601 /* Main.storyboard */ = {
@@ -341,6 +444,14 @@
 				BE607F601D36811F00D02127 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BEFB8DE81D7090F800FE3929 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEFB8DE91D7090F800FE3929 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -437,11 +548,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = r.Simple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artemvaliev.simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -453,12 +567,41 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = r.Simple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artemvaliev.simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+		BEFB8DF01D7090F800FE3929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				INFOPLIST_FILE = "Just Do It/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BEFB8DF11D7090F800FE3929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				INFOPLIST_FILE = "Just Do It/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -482,6 +625,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BEFB8DEF1D7090F800FE3929 /* Build configuration list for PBXNativeTarget "Just Do It" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEFB8DF01D7090F800FE3929 /* Debug */,
+				BEFB8DF11D7090F800FE3929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
