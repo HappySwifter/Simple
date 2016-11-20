@@ -1,10 +1,18 @@
 PODS:
+  - Alamofire (4.0.1)
+  - Gloss (1.1.0)
   - HPReorderTableView (0.2)
 
 DEPENDENCIES:
+  - Alamofire
+  - Gloss
   - HPReorderTableView (~> 0.2)
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Gloss: a8340c124ff69c5d1c12e06c252373f4a16d2958
   HPReorderTableView: fbecadc7f8b2d5a138d976aa5fe6fbb09524022a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f302689b6e3c8ca1c2da8383cdfa2c6027b75459
+
+COCOAPODS: 1.1.1
