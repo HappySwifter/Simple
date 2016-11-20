@@ -15,7 +15,7 @@ import CoreData
 extension Goal {
 
     @NSManaged var name: String?
-    @NSManaged var timeStamp: NSDate?
+    @NSManaged var timeStamp: Date?
     @NSManaged var actions: NSSet?
     @NSManaged var archieved: NSNumber?
 }

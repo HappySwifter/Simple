@@ -292,10 +292,12 @@
 					BEF8A3341D23B9A00042F601 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 63X37KGE26;
+						LastSwiftMigration = 0810;
 					};
 					BEFB8DE21D7090F800FE3929 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 63X37KGE26;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -558,6 +560,7 @@
 				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -576,6 +579,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -589,6 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -602,6 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -633,6 +639,7 @@
 				BEFB8DF11D7090F800FE3929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

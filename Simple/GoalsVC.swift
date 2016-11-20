@@ -9,9 +9,33 @@
 import UIKit
 import CoreData
 import HPReorderTableView
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GoalsVC: UITableViewController {
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var goalName: String?
     var activeGoals = [Goal]()
     var archievedGoals = [Goal]()
@@ -19,12 +43,12 @@ class GoalsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(insertNewObject(_:)))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
 
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
     }
@@ -35,15 +59,15 @@ class GoalsVC: UITableViewController {
         archievedGoals.removeAll()
     }
 
-    func insertNewObject(sender: AnyObject) {
+    func insertNewObject(_ sender: AnyObject) {
         
-        let alert = UIAlertController(title: "Новая Цель", message: "", preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler { (textField) in
+        let alert = UIAlertController(title: "Новая Цель", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
             textField.placeholder = "Название"
             textField.delegate = self
         }
-        let action = UIAlertAction(title: "OK", style: .Default) { [weak self] (action) in
-            guard let sSelf = self where sSelf.goalName?.characters.count > 0 else { return }
+        let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+            guard let sSelf = self, sSelf.goalName?.characters.count > 0 else { return }
             if let goalName = sSelf.goalName {
                 Model.instanse.saveNewGoal(goalName)
                 sSelf.refreshData()
@@ -51,7 +75,7 @@ class GoalsVC: UITableViewController {
 
         }
         alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -61,31 +85,31 @@ class GoalsVC: UITableViewController {
 
     // MARK: - Table View
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activeGoals.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath)
         cell.textLabel?.text = activeGoals[indexPath.row].name
         let actionSet = activeGoals[indexPath.row].actions
-        let firstAction = (actionSet?.allObjects as! [Action]).sort { Int($0.0.priority!) > Int($0.1.priority!) }.first
+        let firstAction = (actionSet?.allObjects as! [Action]).sorted { Int($0.0.priority!) > Int($0.1.priority!) }.first
         cell.detailTextLabel?.text = firstAction?.name
 
         return cell
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             let goal = activeGoals[indexPath.row]
             goal.deleteGoal()
             refreshData()
@@ -93,25 +117,25 @@ class GoalsVC: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowActionsSegue", sender: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowActionsSegue", sender: indexPath)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowActionsSegue" {
-            if let contr = segue.destinationViewController as? ActionsVC {
-                if let indexPath = sender as? NSIndexPath {
+            if let contr = segue.destination as? ActionsVC {
+                if let indexPath = sender as? IndexPath {
                      contr.goal = activeGoals[indexPath.item]
                 }
             }
         }
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func configureCell(cell: UITableViewCell, withObject object: Goal) {
+    func configureCell(_ cell: UITableViewCell, withObject object: Goal) {
         cell.textLabel!.text = object.name
     }
 
@@ -127,7 +151,7 @@ class GoalsVC: UITableViewController {
 
 
 extension GoalsVC: UITextFieldDelegate {
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
          goalName = textField.text
     }
 }

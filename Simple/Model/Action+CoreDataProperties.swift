@@ -16,7 +16,7 @@ extension Action {
 
     @NSManaged var name: String?
     @NSManaged var priority: NSNumber?
-    @NSManaged var timestamp: NSDate?
+    @NSManaged var timestamp: Date?
     @NSManaged var done: NSNumber?
     @NSManaged var goal: Goal?
    

@@ -14,12 +14,12 @@ class Action: NSManagedObject {
 
     func deleteAction() {
         let model = Model.instanse
-        Model.instanse.managedObjectContext.deleteObject(self)
+        Model.instanse.managedObjectContext.delete(self)
         model.saveContext()
     }
     func togleDone() {
         let done = Bool(self.done!)
-        self.done! = NSNumber(bool: !done)
+        self.done! = NSNumber(value: !done as Bool)
         Model.instanse.saveContext()
     }
     

@@ -16,7 +16,7 @@ class Goal: NSManagedObject {
 
     func deleteGoal() {
         let model = Model.instanse
-        Model.instanse.managedObjectContext.deleteObject(self)
+        Model.instanse.managedObjectContext.delete(self)
         model.saveContext()
     }
 }

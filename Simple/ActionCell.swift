@@ -13,7 +13,7 @@ class ActionCell: UITableViewCell {
     @IBOutlet weak var checkBox: CheckBox!
     @IBOutlet weak var nameTextField: UITextField!
 
-    func configure(withAction action: Action, indexPath: NSIndexPath, shouldShowCheckBox: Bool) {
+    func configure(withAction action: Action, indexPath: IndexPath, shouldShowCheckBox: Bool) {
   
         nameTextField.placeholder = ""
         nameTextField.text = action.name
@@ -21,16 +21,16 @@ class ActionCell: UITableViewCell {
         let isChecked = Bool(action.done!)
         checkBox.isChecked = isChecked
         if isChecked {
-            nameTextField.textColor = .lightGrayColor()
-            nameTextField.userInteractionEnabled = false
+            nameTextField.textColor = .lightGray
+            nameTextField.isUserInteractionEnabled = false
         } else {
-            nameTextField.textColor = .blackColor()
-            nameTextField.userInteractionEnabled = true
+            nameTextField.textColor = .black
+            nameTextField.isUserInteractionEnabled = true
         }
         if indexPath.row == 0 || shouldShowCheckBox == true {
-            checkBox.hidden = false
+            checkBox.isHidden = false
         } else {
-            checkBox.hidden = true
+            checkBox.isHidden = true
         }
     }
 }

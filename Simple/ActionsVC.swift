@@ -26,19 +26,19 @@ class ActionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = goal.name
-        self.tableView.keyboardDismissMode = .OnDrag
+        self.tableView.keyboardDismissMode = .onDrag
         
         viewSwitcher.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
-        viewSwitcher.addTarget(self, action: #selector(changeView), forControlEvents: .ValueChanged)
-        viewSwitcher.insertSegmentWithTitle("Active", atIndex: 0, animated: false)
-        viewSwitcher.insertSegmentWithTitle("All", atIndex: 1, animated: false)
+        viewSwitcher.addTarget(self, action: #selector(changeView), for: .valueChanged)
+        viewSwitcher.insertSegment(withTitle: "Active", at: 0, animated: false)
+        viewSwitcher.insertSegment(withTitle: "All", at: 1, animated: false)
         viewSwitcher.selectedSegmentIndex = 0
         let barItem = UIBarButtonItem(customView: viewSwitcher)
         self.navigationItem.rightBarButtonItems = [barItem]
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
     }
@@ -52,7 +52,7 @@ class ActionsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func changeView(switcher: UISegmentedControl) {
+    func changeView(_ switcher: UISegmentedControl) {
         refreshData()
     }
     
@@ -60,26 +60,26 @@ class ActionsVC: UIViewController {
         return ViewState(rawValue: viewSwitcher.selectedSegmentIndex)!
     }
     
-    @IBAction func checkBoxTapped(sender: CheckBox) {
+    @IBAction func checkBoxTapped(_ sender: CheckBox) {
         let indexPath = indexPathForView(sender)
         let action = actions[indexPath.row]
         action.togleDone()
         refreshData()
     }
     
-    func indexPathForView(view: UIView) -> NSIndexPath {
+    func indexPathForView(_ view: UIView) -> IndexPath {
         let viewOrigin = view.bounds.origin
-        let viewLocation = tableView.convertPoint(viewOrigin, fromView: view)
-        return tableView.indexPathForRowAtPoint(viewLocation)!
+        let viewLocation = tableView.convert(viewOrigin, from: view)
+        return tableView.indexPathForRow(at: viewLocation)!
     }
     
     func refreshData() {
         let tempActions = goal.actions?.allObjects as! [Action]
         switch getViewState() {
         case .active:
-            actions = tempActions.sort { Int($0.0.priority!) > Int($0.1.priority!) }.filter { $0.done!.boolValue == false }
+            actions = tempActions.sorted { Int($0.0.priority!) > Int($0.1.priority!) }.filter { $0.done!.boolValue == false }
         case .all:
-            actions = tempActions.sort { Int($0.0.priority!) > Int($0.1.priority!) }
+            actions = tempActions.sorted { Int($0.0.priority!) > Int($0.1.priority!) }
         }
         tableView.reloadData()
     }
@@ -88,12 +88,12 @@ class ActionsVC: UIViewController {
 
 extension ActionsVC {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(ActionCell), forIndexPath: indexPath) as! ActionCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath) as! ActionCell
 
         let action = actions[indexPath.row]
         cell.configure(withAction: action, indexPath: indexPath, shouldShowCheckBox: getViewState() == .all)
@@ -101,32 +101,32 @@ extension ActionsVC {
         return cell
     }
 
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+        if editingStyle == .delete {
             let action = actions[indexPath.row]
             action.deleteAction()
             refreshData()
         }
     }
     
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAtIndexPath sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {
         guard sourceIndexPath != destinationIndexPath else {
             refreshData()
             return
         }
         swap(&actions[sourceIndexPath.row], &actions[destinationIndexPath.row])
-        for (index, action) in actions.reverse().enumerate() {
-            action.priority = index
+        for (index, action) in actions.reversed().enumerated() {
+            action.priority = index as NSNumber?
         }
         Model.instanse.saveContext()
         refreshData()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAtIndexPath indexPath: IndexPath) -> Bool {
         if getViewState() == .active {
             return true
         } else {
@@ -144,13 +144,13 @@ extension ActionsVC: UITextFieldDelegate {
 
 
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
 //        activeTextField = textField
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
 
-        guard let text = textField.text where text.characters.count > 0 else { return }
+        guard let text = textField.text, text.characters.count > 0 else { return }
         if textField == newActionTextField {
             Model.instanse.insertAction(goal, name: text)
             refreshData()
@@ -164,7 +164,7 @@ extension ActionsVC: UITextFieldDelegate {
 
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // The 'add item' row can always dismiss the keyboard.
         if textField == newActionTextField {
@@ -172,7 +172,7 @@ extension ActionsVC: UITextFieldDelegate {
             return true
         }
         // An item must have text to dismiss the keyboard.
-        guard let text = textField.text where !text.isEmpty else { return false }
+        guard let text = textField.text, !text.isEmpty else { return false }
         textField.resignFirstResponder()
         return true
     }
