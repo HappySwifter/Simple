@@ -45,6 +45,12 @@ class GoalsVC: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
+        
+        let registerButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(register))
+        let loginButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(login))
+        let syncButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(modelVersion))
+
+        self.navigationItem.leftBarButtonItems = [registerButton, loginButton, syncButton]
 
     }
 
@@ -69,14 +75,33 @@ class GoalsVC: UITableViewController {
         let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
             guard let sSelf = self, sSelf.goalName?.characters.count > 0 else { return }
             if let goalName = sSelf.goalName {
-                Model.instanse.saveNewGoal(goalName)
-                sSelf.refreshData()
+                Networking.addGoal(withName: goalName, cb: { success in
+                    sSelf.refreshData()
+                })
+                
             }
 
         }
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    func register() {
+        Networking.register()
+    }
+    
+    func login() {
+        Networking.login()
+    }
+    
+    func modelVersion() {
+        Networking.modelVersion(cb: { [weak self] string in
+            let alert = UIAlertController(title: "DB", message: string, preferredStyle: .alert)
+            let closeAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(closeAction)
+            self?.present(alert, animated: true, completion: nil)
+        })
     }
     
     func insertNewArchivedGoal() {

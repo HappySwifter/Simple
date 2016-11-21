@@ -19,6 +19,7 @@
 		BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */; };
 		BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5D1D352A9300D02127 /* CheckBox.swift */; };
 		BE607F641D36832300D02127 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F631D36832300D02127 /* SCLAlertView.swift */; };
+		BE68EBB51DE2DEB300E487DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE68EBB41DE2DEB300E487DA /* Constants.swift */; };
 		BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A3381D23B9A00042F601 /* AppDelegate.swift */; };
 		BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */; };
 		BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33D1D23B9A00042F601 /* GoalsVC.swift */; };
@@ -64,6 +65,7 @@
 		02E5222D1D342CA2007949E6 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		02E5222F1D342CAC007949E6 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		3B32E4411D540B5B2B4D4153 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
+		BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 3.xcdatamodel"; sourceTree = "<group>"; };
 		BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE607F581D352A0000D02127 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
 		BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxLayer.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		BE607F601D36811F00D02127 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BE607F611D36811F00D02127 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		BE607F631D36832300D02127 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		BE68EBB41DE2DEB300E487DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 2.xcdatamodel"; sourceTree = "<group>"; };
 		BEF8A3351D23B9A00042F601 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF8A3381D23B9A00042F601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		BEF8A3371D23B9A00042F601 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				BE68EBB41DE2DEB300E487DA /* Constants.swift */,
 				02439D901DE22C82008CB292 /* Networking.swift */,
 				BE607F621D36831800D02127 /* Vendor */,
 				02E521EA1D34156E007949E6 /* Model */,
@@ -372,7 +376,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F89372A8F50BB7FC7F2FF1C3 /* [CP] Copy Pods Resources */ = {
@@ -404,6 +408,7 @@
 				BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */,
 				02E522301D342CAC007949E6 /* ActionCell.swift in Sources */,
 				02439D911DE22C82008CB292 /* Networking.swift in Sources */,
+				BE68EBB51DE2DEB300E487DA /* Constants.swift in Sources */,
 				BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */,
 				BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */,
 				BEF8A3401D23B9A00042F601 /* ActionsVC.swift in Sources */,
@@ -597,7 +602,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -611,7 +616,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artemvaliev.simple.Just-Do-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -651,10 +656,11 @@
 		BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */,
 				BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */,
 				BEF8A33B1D23B9A00042F601 /* Simple.xcdatamodel */,
 			);
-			currentVersion = BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */;
+			currentVersion = BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */;
 			path = Simple.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

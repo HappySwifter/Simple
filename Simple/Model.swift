@@ -25,7 +25,7 @@ open class Model: NSObject {
     // MARK: - Core Data stack
    
     
-    func saveNewGoal(_ name: String, result: ((ModelResult) -> Void)? = nil)  {
+    func saveNewGoal(_ name: String, id: Int, result: ((ModelResult) -> Void)? = nil)  {
         
         var entity = goalWithName(name)
         if entity == .none  {
@@ -35,6 +35,7 @@ open class Model: NSObject {
         entity?.timeStamp = Date()
         entity?.actions = []
         entity?.archieved = false
+        entity?.id = NSNumber(value: id)
         let activeGoals = getActiveGoals()
         if activeGoals.count > 10 {
             entity?.archieved = true
@@ -96,7 +97,7 @@ open class Model: NSObject {
     
     //MARK - Action
     
-    func insertAction(_ goal: Goal, name: String) -> Action {
+    func insertAction(_ goal: Goal, name: String, id: Int) {
         var action = actionWithName(name)
         if action == .none  {
             action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: managedObjectContext) as? Action
@@ -108,10 +109,9 @@ open class Model: NSObject {
         let goal = goalWithName(goal.name!)
         action?.goal = goal
         action?.done = false
+        action?.id = NSNumber(value: id)
         print("insert action. Name: \(action!.name), Priority: \(action!.priority)")
-        saveContext()
-        return action!
-        
+        saveContext()        
     }
     
     func getLastActionPriority() -> Int {

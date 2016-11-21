@@ -152,9 +152,11 @@ extension ActionsVC: UITextFieldDelegate {
 
         guard let text = textField.text, text.characters.count > 0 else { return }
         if textField == newActionTextField {
-            Model.instanse.insertAction(goal, name: text)
-            refreshData()
-            textField.text = ""
+            Networking.addAction(forGoal: goal, name: text, cb: { [weak self] (success) in
+                self?.refreshData()
+                textField.text = ""
+            })
+
         } else {
             let indexPath = indexPathForView(textField)
             let action = actions[indexPath.row]
