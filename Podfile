@@ -7,5 +7,6 @@ target 'Simple' do
 pod 'HPReorderTableView', '~> 0.2'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod "CRNetworkButton"
 end
 

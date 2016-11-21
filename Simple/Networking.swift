@@ -67,8 +67,6 @@ class Networking {
 
     
     static func sendActions() {
-//        let actions = Model.instanse.get()
-
     }
     
     static func addGoal(withName name: String, cb: @escaping (Bool) -> ()) {
@@ -109,7 +107,27 @@ class Networking {
             }
         }
     }
+    
+    static func remove(goal: Goal, cb: @escaping (Bool) -> ()) {
+        guard let id = goal.id as? Int else { return }
+        let params = ["id": id]
+        Alamofire.request(goalsUrl + "remove", method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                if print(response: response, caller: #function) {
+                    goal.deleteGoal()
+                    cb(true)
+                } else {
+                    cb(false)
+                }
+        }
+    }
 
     
 }
+
+
+
+
+
+
 
