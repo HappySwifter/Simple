@@ -111,7 +111,7 @@ class Networking {
     static func remove(goal: Goal, cb: @escaping (Bool) -> ()) {
         guard let id = goal.id as? Int else { return }
         let params = ["id": id]
-        Alamofire.request(goalsUrl + "remove", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(goalsUrl + "delete", method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     goal.deleteGoal()
@@ -122,7 +122,48 @@ class Networking {
         }
     }
 
+    static func remove(action: Action, cb: @escaping (Bool) -> ()) {
+        guard let id = action.id as? Int else { return }
+        let params = ["id": id]
+        Alamofire.request(actionsUrl + "delete", method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                if print(response: response, caller: #function) {
+                    action.deleteAction()
+                    cb(true)
+                } else {
+                    cb(false)
+                }
+        }
+    }
     
+    static func rename(action: Action, newName: String, cb: @escaping (Bool) -> ()) {
+        guard let id = action.id as? Int else { return }
+        let params: [String: Any] = ["id": id, "name": newName]
+        Alamofire.request(actionsUrl + "rename", method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                if print(response: response, caller: #function) {
+                    action.name = newName
+                    Model.instanse.saveContext()
+                    cb(true)
+                } else {
+                    cb(false)
+                }
+        }
+    }
+    
+    static func set(done isDone: Bool, action: Action, cb: @escaping (Bool) -> ()) {
+        guard let id = action.id as? Int else { return }
+        let params: [String: Any] = ["id": id, "is_done": isDone]
+        Alamofire.request(actionsUrl + "set_is_done", method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                if print(response: response, caller: #function) {
+                    isDone ? action.setDone() : action.setUndone()
+                    cb(true)
+                } else {
+                    cb(false)
+                }
+        }
+    }
 }
 
 

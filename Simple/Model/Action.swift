@@ -17,10 +17,13 @@ class Action: NSManagedObject {
         Model.instanse.managedObjectContext.delete(self)
         model.saveContext()
     }
-    func togleDone() {
-        let done = Bool(self.done!)
-        self.done! = NSNumber(value: !done as Bool)
+    func setUndone() {
+        self.done! = NSNumber(value: false)
         Model.instanse.saveContext()
     }
     
+    func setDone() {
+        self.done! = NSNumber(value: true)
+        Model.instanse.saveContext()
+    }
 }

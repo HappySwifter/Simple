@@ -1,21 +1,18 @@
 PODS:
   - Alamofire (4.0.1)
-  - CRNetworkButton (1.0.1)
   - HPReorderTableView (0.2)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - CRNetworkButton
   - HPReorderTableView (~> 0.2)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  CRNetworkButton: e63b5d757bf0ceafe68917acbe2f8de1cde46b80
   HPReorderTableView: fbecadc7f8b2d5a138d976aa5fe6fbb09524022a
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: df692a309b9bba071bdcfdd63aa8fbb237d24321
+PODFILE CHECKSUM: 5b7594c2d2a3e2da200547d6d9e1f887ad17834d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.0.1

@@ -136,9 +136,9 @@ class GoalsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let goal = activeGoals[indexPath.row]
-            Networking.remove(goal: goal, cb: { (done) in
+            Networking.remove(goal: goal, cb: { [weak self] (done) in
                 if done {
-                    refreshData()
+                    self?.refreshData()
                 }
             })
         }

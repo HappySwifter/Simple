@@ -27,15 +27,15 @@ open class Model: NSObject {
     
     func saveNewGoal(_ name: String, id: Int, result: ((ModelResult) -> Void)? = nil)  {
         
-        var entity = goalWithName(name)
+        var entity = goalWith(id: id)
         if entity == .none  {
             entity = NSEntityDescription.insertNewObject(forEntityName: "Goal", into: managedObjectContext) as? Goal
-            entity?.name = name
+            entity?.actions = []
+            entity?.timeStamp = Date()
+            entity?.archieved = false
+            entity?.id = NSNumber(value: id)
         }
-        entity?.timeStamp = Date()
-        entity?.actions = []
-        entity?.archieved = false
-        entity?.id = NSNumber(value: id)
+        entity?.name = name
         let activeGoals = getActiveGoals()
         if activeGoals.count > 10 {
             entity?.archieved = true
@@ -44,9 +44,9 @@ open class Model: NSObject {
         result?(.ok)
     }
     
-    func goalWithName(_ name: String) -> Goal? {
+    func goalWith(id: Int) -> Goal? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Goal")
-        let predicate = NSPredicate(format: "name = %@", name)
+        let predicate = NSPredicate(format: "id = %i", id)
         fetchRequest.predicate = predicate
         
         do {
@@ -106,7 +106,7 @@ open class Model: NSObject {
         action?.timestamp = Date()
         action?.priority = NSNumber(value: getLastActionPriority() + 1)
         
-        let goal = goalWithName(goal.name!)
+        let goal = goalWith(id: goal.id!.intValue)
         action?.goal = goal
         action?.done = false
         action?.id = NSNumber(value: id)

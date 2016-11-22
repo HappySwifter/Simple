@@ -63,8 +63,12 @@ class ActionsVC: UIViewController {
     @IBAction func checkBoxTapped(_ sender: CheckBox) {
         let indexPath = indexPathForView(sender)
         let action = actions[indexPath.row]
-        action.togleDone()
-        refreshData()
+        Networking.set(done: !action.done!.boolValue, action: action) { [weak self] (success) in
+            if success {
+                self?.refreshData()
+            }
+        }
+        
     }
     
     func indexPathForView(_ view: UIView) -> IndexPath {
@@ -104,8 +108,14 @@ extension ActionsVC {
     func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         if editingStyle == .delete {
             let action = actions[indexPath.row]
-            action.deleteAction()
-            refreshData()
+            Networking.remove(action: action, cb: { [weak self] success in
+                if success {
+                    action.deleteAction()
+                    self?.refreshData()
+                }
+            })
+
+
         }
     }
     
@@ -160,8 +170,14 @@ extension ActionsVC: UITextFieldDelegate {
         } else {
             let indexPath = indexPathForView(textField)
             let action = actions[indexPath.row]
-            action.name = textField.text
-            Model.instanse.saveContext()
+            if action.name != text {
+                Networking.rename(action: action, newName: text, cb: { success in
+                    if !success {
+                        textField.text = action.name
+                    }
+                })
+            }
+
         }
 
     }
