@@ -42,7 +42,7 @@ class GoalsVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        login()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         
