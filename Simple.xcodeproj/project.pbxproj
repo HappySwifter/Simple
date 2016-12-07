@@ -20,6 +20,14 @@
 		BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5D1D352A9300D02127 /* CheckBox.swift */; };
 		BE607F641D36832300D02127 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F631D36832300D02127 /* SCLAlertView.swift */; };
 		BE68EBB51DE2DEB300E487DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE68EBB41DE2DEB300E487DA /* Constants.swift */; };
+		BE871C2A1DF8042400C50322 /* Cely.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C201DF8042400C50322 /* Cely.swift */; };
+		BE871C2B1DF8042400C50322 /* CelyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C211DF8042400C50322 /* CelyConstants.swift */; };
+		BE871C2C1DF8042400C50322 /* CelyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C221DF8042400C50322 /* CelyProtocols.swift */; };
+		BE871C2D1DF8042400C50322 /* CelyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C231DF8042400C50322 /* CelyStorage.swift */; };
+		BE871C2E1DF8042400C50322 /* CelyWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C241DF8042400C50322 /* CelyWindowManager.swift */; };
+		BE871C2F1DF8042400C50322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE871C261DF8042400C50322 /* Assets.xcassets */; };
+		BE871C301DF8042400C50322 /* Cely.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE871C271DF8042400C50322 /* Cely.storyboard */; };
+		BE871C311DF8042400C50322 /* CelyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE871C281DF8042400C50322 /* CelyLoginViewController.swift */; };
 		BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A3381D23B9A00042F601 /* AppDelegate.swift */; };
 		BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */; };
 		BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33D1D23B9A00042F601 /* GoalsVC.swift */; };
@@ -74,6 +82,14 @@
 		BE607F611D36811F00D02127 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		BE607F631D36832300D02127 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		BE68EBB41DE2DEB300E487DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BE871C201DF8042400C50322 /* Cely.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cely.swift; sourceTree = "<group>"; };
+		BE871C211DF8042400C50322 /* CelyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelyConstants.swift; sourceTree = "<group>"; };
+		BE871C221DF8042400C50322 /* CelyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelyProtocols.swift; sourceTree = "<group>"; };
+		BE871C231DF8042400C50322 /* CelyStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelyStorage.swift; sourceTree = "<group>"; };
+		BE871C241DF8042400C50322 /* CelyWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelyWindowManager.swift; sourceTree = "<group>"; };
+		BE871C261DF8042400C50322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE871C271DF8042400C50322 /* Cely.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cely.storyboard; sourceTree = "<group>"; };
+		BE871C281DF8042400C50322 /* CelyLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelyLoginViewController.swift; sourceTree = "<group>"; };
 		BE9465021D47B12F0033EFE0 /* Simple 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 2.xcdatamodel"; sourceTree = "<group>"; };
 		BEF8A3351D23B9A00042F601 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF8A3381D23B9A00042F601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +203,7 @@
 		BE607F621D36831800D02127 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				BE871C1E1DF8042400C50322 /* Cely */,
 				BE607F651D36832C00D02127 /* SCLAlertView */,
 			);
 			name = Vendor;
@@ -198,6 +215,29 @@
 				BE607F631D36832300D02127 /* SCLAlertView.swift */,
 			);
 			name = SCLAlertView;
+			sourceTree = "<group>";
+		};
+		BE871C1E1DF8042400C50322 /* Cely */ = {
+			isa = PBXGroup;
+			children = (
+				BE871C201DF8042400C50322 /* Cely.swift */,
+				BE871C211DF8042400C50322 /* CelyConstants.swift */,
+				BE871C221DF8042400C50322 /* CelyProtocols.swift */,
+				BE871C231DF8042400C50322 /* CelyStorage.swift */,
+				BE871C241DF8042400C50322 /* CelyWindowManager.swift */,
+				BE871C251DF8042400C50322 /* Supporting Files */,
+			);
+			path = Cely;
+			sourceTree = "<group>";
+		};
+		BE871C251DF8042400C50322 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE871C261DF8042400C50322 /* Assets.xcassets */,
+				BE871C271DF8042400C50322 /* Cely.storyboard */,
+				BE871C281DF8042400C50322 /* CelyLoginViewController.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BEF8A32C1D23B9A00042F601 = {
@@ -335,6 +375,8 @@
 			files = (
 				BEF8A3481D23B9A00042F601 /* LaunchScreen.storyboard in Resources */,
 				BEF8A3451D23B9A00042F601 /* Assets.xcassets in Resources */,
+				BE871C301DF8042400C50322 /* Cely.storyboard in Resources */,
+				BE871C2F1DF8042400C50322 /* Assets.xcassets in Resources */,
 				BEF8A3431D23B9A00042F601 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,20 +445,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E521E81D340E3C007949E6 /* Model.swift in Sources */,
+				BE871C311DF8042400C50322 /* CelyLoginViewController.swift in Sources */,
 				BE607F5A1D352A0000D02127 /* Action.swift in Sources */,
 				BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */,
 				02E522271D342B3D007949E6 /* Goal+CoreDataProperties.swift in Sources */,
+				BE871C2E1DF8042400C50322 /* CelyWindowManager.swift in Sources */,
+				BE871C2B1DF8042400C50322 /* CelyConstants.swift in Sources */,
 				BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */,
 				02E522301D342CAC007949E6 /* ActionCell.swift in Sources */,
 				02439D911DE22C82008CB292 /* Networking.swift in Sources */,
 				BE68EBB51DE2DEB300E487DA /* Constants.swift in Sources */,
 				BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */,
 				BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */,
+				BE871C2C1DF8042400C50322 /* CelyProtocols.swift in Sources */,
 				BEF8A3401D23B9A00042F601 /* ActionsVC.swift in Sources */,
 				02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */,
+				BE871C2A1DF8042400C50322 /* Cely.swift in Sources */,
 				BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */,
 				BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */,
 				BE607F641D36832300D02127 /* SCLAlertView.swift in Sources */,
+				BE871C2D1DF8042400C50322 /* CelyStorage.swift in Sources */,
 				02E522281D342B3D007949E6 /* Goal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

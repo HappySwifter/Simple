@@ -9,13 +9,33 @@
 import UIKit
 import CoreData
 
+
+struct User: CelyUser {
+    
+    enum Property: CelyProperty {
+        case token = "token"
+        case username = "username"
+    }
+}
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+//        Cely.setup(with: window, forModel: User(), requiredProperties: [.username], withOptions: [
+//            .loginCompletionBlock: { (username: String, password: String) in
+//                if username == userCredentials["email"] && password == userCredentials["password"] {
+//                    Cely.save(username, forKey: "username")
+////                    Cely.save("FAKETOKEN:\(username)\(password)", forKey: "token", securely: true)
+//                    Cely.changeStatus(to: .loggedIn)
+//                }
+//            }
+//        ])
+        
         // Override point for customization after application launch.
         window?.tintColor = UIColor(red: 0.42, green: 0.70, blue: 0.88, alpha: 1)
         return true

@@ -19,6 +19,7 @@ let userCredentials: [String: String] = [
 func print(response: DataResponse<Any>, caller: String) -> Bool {
     switch response.result {
     case .success(let value):
+        saveDate(fromResponse: response)
         let json = JSON(value)
         if json["error"].bool == true {
             print("😡 \(caller) \(json["message"].string ?? "unknown error")")
@@ -33,6 +34,17 @@ func print(response: DataResponse<Any>, caller: String) -> Bool {
     }
 }
 
+func saveDate(fromResponse response: DataResponse<Any>) {
+    if let date = response.response?.allHeaderFields["Date"] {
+        let def = UserDefaults.standard
+        def.set(date, forKey: "LastServerModDate")
+        def.synchronize()
+    }
+}
+
+func getLastServerModDate() -> String? {
+    return UserDefaults.standard.object(forKey: "LastServerModDate") as? String
+}
 
 
 class Networking {
@@ -58,9 +70,10 @@ class Networking {
         if let authorizationHeader = Request.authorizationHeader(user: userCredentials["email"]!, password: userCredentials["password"]!) {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
+
         Alamofire.request(usersUrl + "login", method: .post, headers: headers)
             .responseJSON { response in
-                 let _ = print(response: response, caller: #function)
+                let _ = print(response: response, caller: #function)
         }
     }
     
