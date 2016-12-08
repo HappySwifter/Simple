@@ -16,6 +16,7 @@ let userCredentials: [String: String] = [
     "password": "4005"
 ]
 
+
 func print(response: DataResponse<Any>, caller: String) -> Bool {
     switch response.result {
     case .success(let value):
@@ -50,7 +51,7 @@ func getLastServerModDate() -> String? {
 class Networking {
     
     static func modelVersion(cb: @escaping (String) -> ()) {
-        Alamofire.request(serverURL + "version")
+        Alamofire.request(serverURL.appendingPathComponent("version"))
         .responseJSON { (response) in
             let _ = print(response: response, caller: #function)
             let data = JSON(response.result.value ?? "")[0]["version"].debugDescription
@@ -59,24 +60,61 @@ class Networking {
     }
     
     static func register() {
-        Alamofire.request(usersUrl + "register", method: .post, parameters: userCredentials)
+        Alamofire.request(Users.register.getUrl(), method: .post, parameters: userCredentials)
             .responseJSON(completionHandler: { (response) in
                  let _ = print(response: response, caller: #function)
         })
     }
     
-    static func login() {
+    static func login(completion: @escaping (Bool) -> ()) {
         var headers: HTTPHeaders = [:]
         if let authorizationHeader = Request.authorizationHeader(user: userCredentials["email"]!, password: userCredentials["password"]!) {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
 
-        Alamofire.request(usersUrl + "login", method: .post, headers: headers)
+        Alamofire.request(Users.login.getUrl(), method: .post, headers: headers)
             .responseJSON { response in
-                let _ = print(response: response, caller: #function)
+                if print(response: response, caller: #function) {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
         }
     }
     
+
+    
+    static func downloadAllData(completion: @escaping (Bool) -> ()) {
+        Alamofire.request(Goals.all.getUrl(), method: .get, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if print(response: response, caller: #function) {
+                    if let goals = JSON(response.result.value!).array {
+                        for goal in goals {
+                            Model.instanse.saveNewGoal(goal["name"].string!, id: goal["id"].int!)
+                        }
+                        
+                    }
+                    
+                }
+                
+                Alamofire.request(Actions.all.getUrl(), method: .get, encoding: JSONEncoding.default)
+                    .responseJSON { response in
+                        if print(response: response, caller: #function) {
+                            if let actions = JSON(response.result.value!).array {
+                                for action in actions {
+                                    if let goalId = action["parent"].int, let goal = Model.instanse.goalWith(id: goalId) {
+                                        Model.instanse.insertAction(goal, name: action["name"].string!, id: action["id"].int!)
+                                    }
+                                }
+                                completion(true)
+                            }
+                        }
+                }
+                
+        }
+        
+        
+    }
 
     
     static func sendActions() {
@@ -86,7 +124,7 @@ class Networking {
         let params = [
             "name": name
         ]
-        Alamofire.request(goalsUrl + "create", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Goals.create.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if print(response: response, caller: #function) {
                     let json = JSON(response.result.value!)
@@ -109,7 +147,7 @@ class Networking {
             "is_done": false
         ]
         
-        Alamofire.request(actionsUrl + "create", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Actions.create.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
         .responseJSON { response in
             if print(response: response, caller: #function) {
                 let json = JSON(response.result.value!)
@@ -124,7 +162,7 @@ class Networking {
     static func remove(goal: Goal, cb: @escaping (Bool) -> ()) {
         guard let id = goal.id as? Int else { return }
         let params = ["id": id]
-        Alamofire.request(goalsUrl + "delete", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Goals.delete.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     goal.deleteGoal()
@@ -138,7 +176,7 @@ class Networking {
     static func remove(action: Action, cb: @escaping (Bool) -> ()) {
         guard let id = action.id as? Int else { return }
         let params = ["id": id]
-        Alamofire.request(actionsUrl + "delete", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Actions.delete.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     action.deleteAction()
@@ -152,7 +190,7 @@ class Networking {
     static func rename(action: Action, newName: String, cb: @escaping (Bool) -> ()) {
         guard let id = action.id as? Int else { return }
         let params: [String: Any] = ["id": id, "name": newName]
-        Alamofire.request(actionsUrl + "rename", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Actions.rename.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     action.name = newName
@@ -167,7 +205,7 @@ class Networking {
     static func set(done isDone: Bool, action: Action, cb: @escaping (Bool) -> ()) {
         guard let id = action.id as? Int else { return }
         let params: [String: Any] = ["id": id, "is_done": isDone]
-        Alamofire.request(actionsUrl + "set_is_done", method: .post, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(Actions.set_is_done.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     isDone ? action.setDone() : action.setUndone()

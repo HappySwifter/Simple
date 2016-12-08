@@ -132,7 +132,6 @@
 		02E521E91D34155A007949E6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
 				BEF8A3491D23B9A00042F601 /* Info.plist */,
 				BEF8A3461D23B9A00042F601 /* LaunchScreen.storyboard */,
 				BEF8A3411D23B9A00042F601 /* Main.storyboard */,
@@ -263,6 +262,7 @@
 		BEF8A3371D23B9A00042F601 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
 				BE68EBB41DE2DEB300E487DA /* Constants.swift */,
 				02439D901DE22C82008CB292 /* Networking.swift */,
 				BE607F621D36831800D02127 /* Vendor */,

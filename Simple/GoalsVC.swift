@@ -92,7 +92,13 @@ class GoalsVC: UITableViewController {
     }
     
     func login() {
-        Networking.login()
+        Networking.login { (success) in
+            if success {
+                Networking.downloadAllData(completion: { [weak self] (success) in
+                    self?.refreshData()
+                })
+            }
+        }
     }
     
     func modelVersion() {
