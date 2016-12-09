@@ -8,8 +8,8 @@
 
 import Foundation
 
-//let serverURL = URL(string: "https://limitless-tor-75060.herokuapp.com/")!
-let serverURL = URL(string: "http://0.0.0.0:8088/")!
+let serverURL = URL(string: "https://limitless-tor-75060.herokuapp.com/")!
+//let serverURL = URL(string: "http://0.0.0.0:8088/")!
 
 let registerKey = "mysuperkey"
 

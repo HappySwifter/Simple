@@ -14,6 +14,12 @@
 		02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222D1D342CA2007949E6 /* GoalCell.swift */; };
 		02E522301D342CAC007949E6 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222F1D342CAC007949E6 /* ActionCell.swift */; };
 		05A106E7BDD6440EDFA3C4FE /* Pods_Simple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF992F1BA2F437767AA9B81E /* Pods_Simple.framework */; };
+		942865081DFAF01900E25899 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522241D342B3D007949E6 /* Goal.swift */; };
+		942865091DFAF01B00E25899 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E521E71D340E3C007949E6 /* Model.swift */; };
+		9428650A1DFAF02E00E25899 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522231D342B3D007949E6 /* Goal+CoreDataProperties.swift */; };
+		9428650B1DFAF03200E25899 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
+		9428650C1DFAF03400E25899 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
+		9428650D1DFAF26200E25899 /* Simple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */; };
 		BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
 		BE607F5A1D352A0000D02127 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
 		BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */; };
@@ -73,6 +79,7 @@
 		02E5222D1D342CA2007949E6 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		02E5222F1D342CAC007949E6 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		3B32E4411D540B5B2B4D4153 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
+		9428650E1DFAF30400E25899 /* Simple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simple.entitlements; sourceTree = "<group>"; };
 		BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 3.xcdatamodel"; sourceTree = "<group>"; };
 		BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE607F581D352A0000D02127 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
@@ -262,6 +269,7 @@
 		BEF8A3371D23B9A00042F601 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				9428650E1DFAF30400E25899 /* Simple.entitlements */,
 				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
 				BE68EBB41DE2DEB300E487DA /* Constants.swift */,
 				02439D901DE22C82008CB292 /* Networking.swift */,
@@ -340,6 +348,12 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 63X37KGE26;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					BEFB8DE21D7090F800FE3929 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -473,6 +487,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942865091DFAF01B00E25899 /* Model.swift in Sources */,
+				9428650D1DFAF26200E25899 /* Simple.xcdatamodeld in Sources */,
+				9428650C1DFAF03400E25899 /* Action.swift in Sources */,
+				942865081DFAF01900E25899 /* Goal.swift in Sources */,
+				9428650A1DFAF02E00E25899 /* Goal+CoreDataProperties.swift in Sources */,
+				9428650B1DFAF03200E25899 /* Action+CoreDataProperties.swift in Sources */,
 				BEFB8DE71D7090F800FE3929 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,14 +630,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Simple/Simple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemvaliev.simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -630,14 +653,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Simple/Simple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemvaliev.simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f3f4f0d-4b11-4d14-87c7-24d74b704409";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
