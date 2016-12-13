@@ -179,7 +179,7 @@ class Networking {
         Alamofire.request(Actions.delete.getUrl(), method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
-                    action.deleteAction()
+                    action.delete()
                     cb(true)
                 } else {
                     cb(false)
@@ -209,6 +209,7 @@ class Networking {
             .responseJSON { (response) in
                 if print(response: response, caller: #function) {
                     isDone ? action.setDone() : action.setUndone()
+                    Model.instanse.saveContext()
                     cb(true)
                 } else {
                     cb(false)

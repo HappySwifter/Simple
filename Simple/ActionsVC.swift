@@ -110,7 +110,6 @@ extension ActionsVC {
             let action = actions[indexPath.row]
             Networking.remove(action: action, cb: { [weak self] success in
                 if success {
-                    action.deleteAction()
                     self?.refreshData()
                 }
             })

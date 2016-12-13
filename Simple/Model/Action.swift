@@ -12,7 +12,7 @@ import CoreData
 @objc(Action)
 class Action: NSManagedObject {
 
-    func deleteAction() {
+    func delete() {
         let model = Model.instanse
         Model.instanse.managedObjectContext.delete(self)
         model.saveContext()

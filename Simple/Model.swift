@@ -98,20 +98,18 @@ open class Model: NSObject {
     //MARK - Action
     
     func insertAction(_ goal: Goal, name: String, id: Int) {
-        var action = actionWithName(name)
-        if action == .none  {
-            action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: managedObjectContext) as? Action
+        if actionWithId(id) == .none  {
+            let action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: managedObjectContext) as? Action
             action?.name = name
+            action?.done = false
+            action?.timestamp = Date()
+            action?.priority = NSNumber(value: getLastActionPriority() + 1)
+            action?.id = NSNumber(value: id)
+            let goal = goalWith(id: goal.id!.intValue)
+            action?.goal = goal
+            print("insert action. Name: \(action!.name), Priority: \(action!.priority)")
+            saveContext()
         }
-        action?.timestamp = Date()
-        action?.priority = NSNumber(value: getLastActionPriority() + 1)
-        
-        let goal = goalWith(id: goal.id!.intValue)
-        action?.goal = goal
-        action?.done = false
-        action?.id = NSNumber(value: id)
-        print("insert action. Name: \(action!.name), Priority: \(action!.priority)")
-        saveContext()        
     }
     
     func getLastActionPriority() -> Int {
@@ -138,9 +136,9 @@ open class Model: NSObject {
     }
     
     
-    func actionWithName(_ name: String) -> Action? {
+    func actionWithId(_ id: Int) -> Action? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Action")
-        let predicate = NSPredicate(format: "name = %@", name)
+        let predicate = NSPredicate(format: "id = %i", id)
         fetchRequest.predicate = predicate
         
         do {
@@ -154,27 +152,6 @@ open class Model: NSObject {
         return .none
     }
     
-
-    
-//    func getActions(forGoal goal: Goal) -> [Action] {
-//        let fetchRequest = NSFetchRequest(entityName: String(Action))
-//        let sortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//        
-//        do {
-//            if let result = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Action] {
-//                print("returning actions:")
-//                print(result.map{ $0.priority! })
-//                return result
-//            } else {
-//                return []
-//            }
-//        } catch _ as NSError {
-//            return []
-//        }
-//    }
-    
-
 
 //MARK - Core Data stack
 
