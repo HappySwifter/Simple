@@ -46,7 +46,7 @@ class GoalsVC: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         
-        let registerButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(register))
+        let registerButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.performSignUp))
         let loginButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(login))
         let syncButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(modelVersion))
 
@@ -87,9 +87,20 @@ class GoalsVC: UITableViewController {
         
     }
     
-    func register() {
-        Networking.register()
+    
+    func performSignUp() {
+        let user = UserItem(email: "a.v@gmail.com", phoneNumber: nil)
+        let signUpOp = SignUpOperation(user: user, password: "4005", keyword: registerKey)
+        signUpOp.success = { item in
+            
+        }
+        
+        signUpOp.failure = { error in
+            
+        }
+        NetworkQueue.shared.addOperation(signUpOp)
     }
+    
     
     func login() {
         Networking.login { (success) in

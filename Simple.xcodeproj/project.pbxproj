@@ -14,12 +14,44 @@
 		02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222D1D342CA2007949E6 /* GoalCell.swift */; };
 		02E522301D342CAC007949E6 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E5222F1D342CAC007949E6 /* ActionCell.swift */; };
 		05A106E7BDD6440EDFA3C4FE /* Pods_Simple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF992F1BA2F437767AA9B81E /* Pods_Simple.framework */; };
+		4AD497FDE49427F4DE5623BE /* Pods_Just_Do_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F963D863004AD64F03EEEE6D /* Pods_Just_Do_It.framework */; };
 		942865081DFAF01900E25899 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522241D342B3D007949E6 /* Goal.swift */; };
 		942865091DFAF01B00E25899 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E521E71D340E3C007949E6 /* Model.swift */; };
 		9428650A1DFAF02E00E25899 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E522231D342B3D007949E6 /* Goal+CoreDataProperties.swift */; };
 		9428650B1DFAF03200E25899 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
 		9428650C1DFAF03400E25899 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
 		9428650D1DFAF26200E25899 /* Simple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEF8A33A1D23B9A00042F601 /* Simple.xcdatamodeld */; };
+		9453AC0C1E04147500F09737 /* BackendAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC081E04147400F09737 /* BackendAPIRequest.swift */; };
+		9453AC0D1E04147500F09737 /* BackendAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC081E04147400F09737 /* BackendAPIRequest.swift */; };
+		9453AC0E1E04147500F09737 /* BackendConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC091E04147400F09737 /* BackendConfiguration.swift */; };
+		9453AC0F1E04147500F09737 /* BackendConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC091E04147400F09737 /* BackendConfiguration.swift */; };
+		9453AC101E04147500F09737 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC0A1E04147400F09737 /* BackendService.swift */; };
+		9453AC111E04147500F09737 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC0A1E04147400F09737 /* BackendService.swift */; };
+		9453AC121E04147500F09737 /* ServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC0B1E04147400F09737 /* ServiceOperation.swift */; };
+		9453AC131E04147500F09737 /* ServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC0B1E04147400F09737 /* ServiceOperation.swift */; };
+		9453AC171E0414A900F09737 /* ArrayResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC151E0414A900F09737 /* ArrayResponseMapper.swift */; };
+		9453AC181E0414A900F09737 /* ArrayResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC151E0414A900F09737 /* ArrayResponseMapper.swift */; };
+		9453AC191E0414A900F09737 /* ResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC161E0414A900F09737 /* ResponseMapper.swift */; };
+		9453AC1A1E0414A900F09737 /* ResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC161E0414A900F09737 /* ResponseMapper.swift */; };
+		9453AC1F1E0414C700F09737 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1C1E0414C700F09737 /* NetworkOperation.swift */; };
+		9453AC201E0414C700F09737 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1C1E0414C700F09737 /* NetworkOperation.swift */; };
+		9453AC211E0414C700F09737 /* NetworkQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1D1E0414C700F09737 /* NetworkQueue.swift */; };
+		9453AC221E0414C700F09737 /* NetworkQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1D1E0414C700F09737 /* NetworkQueue.swift */; };
+		9453AC231E0414C700F09737 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1E1E0414C700F09737 /* NetworkService.swift */; };
+		9453AC241E0414C700F09737 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC1E1E0414C700F09737 /* NetworkService.swift */; };
+		9453AC281E0414F800F09737 /* ParsedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC261E0414F800F09737 /* ParsedItem.swift */; };
+		9453AC291E0414F800F09737 /* ParsedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC261E0414F800F09737 /* ParsedItem.swift */; };
+		9453AC2A1E0414F800F09737 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC271E0414F800F09737 /* UserItem.swift */; };
+		9453AC2B1E0414F800F09737 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC271E0414F800F09737 /* UserItem.swift */; };
+		9453AC2E1E04152000F09737 /* SignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC2D1E04152000F09737 /* SignUpOperation.swift */; };
+		9453AC2F1E04152000F09737 /* SignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC2D1E04152000F09737 /* SignUpOperation.swift */; };
+		9453AC321E04152500F09737 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC311E04152500F09737 /* SignUpRequest.swift */; };
+		9453AC331E04152500F09737 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC311E04152500F09737 /* SignUpRequest.swift */; };
+		9453AC361E04152E00F09737 /* UserResponseMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC351E04152E00F09737 /* UserResponseMapping.swift */; };
+		9453AC371E04152E00F09737 /* UserResponseMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC351E04152E00F09737 /* UserResponseMapping.swift */; };
+		9453AC391E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */; };
+		9453AC3A1E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */; };
+		9453AC3C1E0417C100F09737 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE68EBB41DE2DEB300E487DA /* Constants.swift */; };
 		BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
 		BE607F5A1D352A0000D02127 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
 		BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */; };
@@ -78,8 +110,25 @@
 		02E522241D342B3D007949E6 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Goal.swift; path = Model/Goal.swift; sourceTree = "<group>"; };
 		02E5222D1D342CA2007949E6 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		02E5222F1D342CAC007949E6 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		228574846BAB4F4EED4D702A /* Pods-Just Do It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Just Do It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Just Do It/Pods-Just Do It.debug.xcconfig"; sourceTree = "<group>"; };
+		2F212DB1F4D3B256294FA1E8 /* Pods-Just Do It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Just Do It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Just Do It/Pods-Just Do It.release.xcconfig"; sourceTree = "<group>"; };
 		3B32E4411D540B5B2B4D4153 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		9428650E1DFAF30400E25899 /* Simple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simple.entitlements; sourceTree = "<group>"; };
+		9453AC081E04147400F09737 /* BackendAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendAPIRequest.swift; sourceTree = "<group>"; };
+		9453AC091E04147400F09737 /* BackendConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendConfiguration.swift; sourceTree = "<group>"; };
+		9453AC0A1E04147400F09737 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		9453AC0B1E04147400F09737 /* ServiceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceOperation.swift; sourceTree = "<group>"; };
+		9453AC151E0414A900F09737 /* ArrayResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayResponseMapper.swift; sourceTree = "<group>"; };
+		9453AC161E0414A900F09737 /* ResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMapper.swift; sourceTree = "<group>"; };
+		9453AC1C1E0414C700F09737 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
+		9453AC1D1E0414C700F09737 /* NetworkQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkQueue.swift; sourceTree = "<group>"; };
+		9453AC1E1E0414C700F09737 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9453AC261E0414F800F09737 /* ParsedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedItem.swift; sourceTree = "<group>"; };
+		9453AC271E0414F800F09737 /* UserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
+		9453AC2D1E04152000F09737 /* SignUpOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpOperation.swift; sourceTree = "<group>"; };
+		9453AC311E04152500F09737 /* SignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		9453AC351E04152E00F09737 /* UserResponseMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponseMapping.swift; sourceTree = "<group>"; };
+		9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayerConfiguration.swift; sourceTree = "<group>"; };
 		BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 3.xcdatamodel"; sourceTree = "<group>"; };
 		BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE607F581D352A0000D02127 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
@@ -114,6 +163,7 @@
 		BEFB8DEB1D7090F800FE3929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF992F1BA2F437767AA9B81E /* Pods_Simple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC78266DD0792EC11799B0 /* Pods-Simple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.release.xcconfig"; sourceTree = "<group>"; };
+		F963D863004AD64F03EEEE6D /* Pods_Just_Do_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Just_Do_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFB8DE41D7090F800FE3929 /* NotificationCenter.framework in Frameworks */,
+				4AD497FDE49427F4DE5623BE /* Pods_Just_Do_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +235,7 @@
 			children = (
 				BEFB8DCF1D70905200FE3929 /* NotificationCenter.framework */,
 				DF992F1BA2F437767AA9B81E /* Pods_Simple.framework */,
+				F963D863004AD64F03EEEE6D /* Pods_Just_Do_It.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,8 +245,88 @@
 			children = (
 				3B32E4411D540B5B2B4D4153 /* Pods-Simple.debug.xcconfig */,
 				F8EC78266DD0792EC11799B0 /* Pods-Simple.release.xcconfig */,
+				228574846BAB4F4EED4D702A /* Pods-Just Do It.debug.xcconfig */,
+				2F212DB1F4D3B256294FA1E8 /* Pods-Just Do It.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9453AC071E04147400F09737 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC081E04147400F09737 /* BackendAPIRequest.swift */,
+				9453AC091E04147400F09737 /* BackendConfiguration.swift */,
+				9453AC0A1E04147400F09737 /* BackendService.swift */,
+				9453AC0B1E04147400F09737 /* ServiceOperation.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		9453AC141E0414A900F09737 /* Core Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC151E0414A900F09737 /* ArrayResponseMapper.swift */,
+				9453AC161E0414A900F09737 /* ResponseMapper.swift */,
+			);
+			path = "Core Mapping";
+			sourceTree = "<group>";
+		};
+		9453AC1B1E0414C700F09737 /* Core Network */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC1C1E0414C700F09737 /* NetworkOperation.swift */,
+				9453AC1D1E0414C700F09737 /* NetworkQueue.swift */,
+				9453AC1E1E0414C700F09737 /* NetworkService.swift */,
+			);
+			path = "Core Network";
+			sourceTree = "<group>";
+		};
+		9453AC251E0414F800F09737 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC261E0414F800F09737 /* ParsedItem.swift */,
+				9453AC271E0414F800F09737 /* UserItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		9453AC2C1E04152000F09737 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC2D1E04152000F09737 /* SignUpOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		9453AC301E04152500F09737 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC311E04152500F09737 /* SignUpRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9453AC341E04152E00F09737 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC351E04152E00F09737 /* UserResponseMapping.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		9453AC3D1E041F9400F09737 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9453AC341E04152E00F09737 /* Mappers */,
+				9453AC301E04152500F09737 /* Request */,
+				9453AC2C1E04152000F09737 /* Operations */,
+				9453AC251E0414F800F09737 /* Items */,
+				9453AC1B1E0414C700F09737 /* Core Network */,
+				9453AC141E0414A900F09737 /* Core Mapping */,
+				9453AC071E04147400F09737 /* Backend */,
+				9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		BE607F5F1D36439E00D02127 /* CheckBox */ = {
@@ -269,6 +401,7 @@
 		BEF8A3371D23B9A00042F601 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				9453AC3D1E041F9400F09737 /* Network */,
 				9428650E1DFAF30400E25899 /* Simple.entitlements */,
 				BEF8A3381D23B9A00042F601 /* AppDelegate.swift */,
 				BE68EBB41DE2DEB300E487DA /* Constants.swift */,
@@ -321,9 +454,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEFB8DEF1D7090F800FE3929 /* Build configuration list for PBXNativeTarget "Just Do It" */;
 			buildPhases = (
+				F6167598634FA9F13D6AFF5C /* [CP] Check Pods Manifest.lock */,
 				BEFB8DDF1D7090F800FE3929 /* Sources */,
 				BEFB8DE01D7090F800FE3929 /* Frameworks */,
 				BEFB8DE11D7090F800FE3929 /* Resources */,
+				3D21505BAB9F9D1592B07429 /* [CP] Embed Pods Frameworks */,
+				5FEBDC2735B2C853556DACE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -406,6 +542,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3D21505BAB9F9D1592B07429 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Just Do It/Pods-Just Do It-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FEBDC2735B2C853556DACE8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Just Do It/Pods-Just Do It-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AE3A36570CAD430025EE5CED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +588,21 @@
 			showEnvVarsInLog = 0;
 		};
 		F6036CCA8767966DDB441BEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6167598634FA9F13D6AFF5C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,12 +639,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9453AC391E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */,
 				02E521E81D340E3C007949E6 /* Model.swift in Sources */,
 				BE871C311DF8042400C50322 /* CelyLoginViewController.swift in Sources */,
+				9453AC321E04152500F09737 /* SignUpRequest.swift in Sources */,
 				BE607F5A1D352A0000D02127 /* Action.swift in Sources */,
 				BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */,
+				9453AC101E04147500F09737 /* BackendService.swift in Sources */,
 				02E522271D342B3D007949E6 /* Goal+CoreDataProperties.swift in Sources */,
+				9453AC171E0414A900F09737 /* ArrayResponseMapper.swift in Sources */,
 				BE871C2E1DF8042400C50322 /* CelyWindowManager.swift in Sources */,
+				9453AC121E04147500F09737 /* ServiceOperation.swift in Sources */,
 				BE871C2B1DF8042400C50322 /* CelyConstants.swift in Sources */,
 				BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */,
 				02E522301D342CAC007949E6 /* ActionCell.swift in Sources */,
@@ -471,13 +657,23 @@
 				BE68EBB51DE2DEB300E487DA /* Constants.swift in Sources */,
 				BEF8A33C1D23B9A00042F601 /* Simple.xcdatamodeld in Sources */,
 				BEF8A33E1D23B9A00042F601 /* GoalsVC.swift in Sources */,
+				9453AC1F1E0414C700F09737 /* NetworkOperation.swift in Sources */,
+				9453AC0E1E04147500F09737 /* BackendConfiguration.swift in Sources */,
 				BE871C2C1DF8042400C50322 /* CelyProtocols.swift in Sources */,
 				BEF8A3401D23B9A00042F601 /* ActionsVC.swift in Sources */,
+				9453AC211E0414C700F09737 /* NetworkQueue.swift in Sources */,
 				02E5222E1D342CA2007949E6 /* GoalCell.swift in Sources */,
 				BE871C2A1DF8042400C50322 /* Cely.swift in Sources */,
+				9453AC2E1E04152000F09737 /* SignUpOperation.swift in Sources */,
+				9453AC0C1E04147500F09737 /* BackendAPIRequest.swift in Sources */,
 				BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */,
+				9453AC281E0414F800F09737 /* ParsedItem.swift in Sources */,
+				9453AC191E0414A900F09737 /* ResponseMapper.swift in Sources */,
 				BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */,
+				9453AC361E04152E00F09737 /* UserResponseMapping.swift in Sources */,
 				BE607F641D36832300D02127 /* SCLAlertView.swift in Sources */,
+				9453AC2A1E0414F800F09737 /* UserItem.swift in Sources */,
+				9453AC231E0414C700F09737 /* NetworkService.swift in Sources */,
 				BE871C2D1DF8042400C50322 /* CelyStorage.swift in Sources */,
 				02E522281D342B3D007949E6 /* Goal.swift in Sources */,
 			);
@@ -488,12 +684,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				942865091DFAF01B00E25899 /* Model.swift in Sources */,
+				9453AC0F1E04147500F09737 /* BackendConfiguration.swift in Sources */,
 				9428650D1DFAF26200E25899 /* Simple.xcdatamodeld in Sources */,
+				9453AC181E0414A900F09737 /* ArrayResponseMapper.swift in Sources */,
+				9453AC131E04147500F09737 /* ServiceOperation.swift in Sources */,
+				9453AC221E0414C700F09737 /* NetworkQueue.swift in Sources */,
+				9453AC3C1E0417C100F09737 /* Constants.swift in Sources */,
 				9428650C1DFAF03400E25899 /* Action.swift in Sources */,
+				9453AC291E0414F800F09737 /* ParsedItem.swift in Sources */,
+				9453AC201E0414C700F09737 /* NetworkOperation.swift in Sources */,
+				9453AC111E04147500F09737 /* BackendService.swift in Sources */,
 				942865081DFAF01900E25899 /* Goal.swift in Sources */,
+				9453AC2B1E0414F800F09737 /* UserItem.swift in Sources */,
+				9453AC371E04152E00F09737 /* UserResponseMapping.swift in Sources */,
+				9453AC241E0414C700F09737 /* NetworkService.swift in Sources */,
 				9428650A1DFAF02E00E25899 /* Goal+CoreDataProperties.swift in Sources */,
+				9453AC0D1E04147500F09737 /* BackendAPIRequest.swift in Sources */,
+				9453AC2F1E04152000F09737 /* SignUpOperation.swift in Sources */,
+				9453AC1A1E0414A900F09737 /* ResponseMapper.swift in Sources */,
+				9453AC331E04152500F09737 /* SignUpRequest.swift in Sources */,
 				9428650B1DFAF03200E25899 /* Action+CoreDataProperties.swift in Sources */,
 				BEFB8DE71D7090F800FE3929 /* TodayViewController.swift in Sources */,
+				9453AC3A1E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +883,7 @@
 		};
 		BEFB8DF01D7090F800FE3929 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 228574846BAB4F4EED4D702A /* Pods-Just Do It.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -686,6 +899,7 @@
 		};
 		BEFB8DF11D7090F800FE3929 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F212DB1F4D3B256294FA1E8 /* Pods-Just Do It.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Artem Valiev (S6K8NBWNJN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

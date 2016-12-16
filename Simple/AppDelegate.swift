@@ -18,14 +18,19 @@ struct User: CelyUser {
     }
 }
 
+
+
+
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        NetworkLayerConfiguration.setup()
+        
 //        Cely.setup(with: window, forModel: User(), requiredProperties: [.username], withOptions: [
 //            .loginCompletionBlock: { (username: String, password: String) in
 //                if username == userCredentials["email"] && password == userCredentials["password"] {

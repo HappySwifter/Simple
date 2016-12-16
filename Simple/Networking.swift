@@ -59,12 +59,6 @@ class Networking {
         }
     }
     
-    static func register() {
-        Alamofire.request(Users.register.getUrl(), method: .post, parameters: userCredentials)
-            .responseJSON(completionHandler: { (response) in
-                 let _ = print(response: response, caller: #function)
-        })
-    }
     
     static func login(completion: @escaping (Bool) -> ()) {
         var headers: HTTPHeaders = [:]
