@@ -6,7 +6,7 @@ protocol BackendAPIRequest {
     var method: HTTPMethod { get }
     var query: NetworkService.QueryType { get }
     var parameters: [String: Any]? { get }
-    var headers: [String: String]? { get }
+    var headers: HTTPHeaders? { get }
 }
 
 extension BackendAPIRequest {

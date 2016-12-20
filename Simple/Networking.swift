@@ -60,24 +60,6 @@ class Networking {
     }
     
     
-    static func login(completion: @escaping (Bool) -> ()) {
-        var headers: HTTPHeaders = [:]
-        if let authorizationHeader = Request.authorizationHeader(user: userCredentials["email"]!, password: userCredentials["password"]!) {
-            headers[authorizationHeader.key] = authorizationHeader.value
-        }
-
-        Alamofire.request(Users.login.getUrl(), method: .post, headers: headers)
-            .responseJSON { response in
-                if print(response: response, caller: #function) {
-                    completion(true)
-                } else {
-                    completion(false)
-                }
-        }
-    }
-    
-
-    
     static func downloadAllData(completion: @escaping (Bool) -> ()) {
         Alamofire.request(Goals.all.getUrl(), method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in

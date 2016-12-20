@@ -1,15 +1,23 @@
+//
+//  LogInOperation.swift
+//  Simple
+//
+//  Created by guest2 on 19.12.16.
+//  Copyright © 2016 Артем Валиев. All rights reserved.
+//
+
 import Foundation
 import SwiftyJSON
 
-public class SignUpOperation: ServiceOperation {
+public class LogInOperation: ServiceOperation {
     
-    private let request: SignUpRequest
+    private let request: LogInRequest
     
     public var success: ((UserItem) -> Void)? = nil
     public var failure: ((NSError) -> Void)? = nil
     
-    public init(user: UserItem, password: String, keyword: String) {
-        self.request = SignUpRequest(user: user, password: password, keyword: keyword)
+    public init(email: String, password: String) {
+        self.request = LogInRequest(email: email, password: password)
         super.init()
     }
     

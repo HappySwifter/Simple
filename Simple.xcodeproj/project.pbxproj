@@ -52,6 +52,8 @@
 		9453AC391E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */; };
 		9453AC3A1E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */; };
 		9453AC3C1E0417C100F09737 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE68EBB41DE2DEB300E487DA /* Constants.swift */; };
+		94CC47921E0827490007476B /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC47911E0827490007476B /* LogInRequest.swift */; };
+		94CC47941E0829510007476B /* LogInOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC47931E0829510007476B /* LogInOperation.swift */; };
 		BE607F591D352A0000D02127 /* Action+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */; };
 		BE607F5A1D352A0000D02127 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F581D352A0000D02127 /* Action.swift */; };
 		BE607F5C1D352A8200D02127 /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE607F5B1D352A8200D02127 /* CheckBoxLayer.swift */; };
@@ -129,6 +131,8 @@
 		9453AC311E04152500F09737 /* SignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		9453AC351E04152E00F09737 /* UserResponseMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponseMapping.swift; sourceTree = "<group>"; };
 		9453AC381E04154400F09737 /* NetworkLayerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayerConfiguration.swift; sourceTree = "<group>"; };
+		94CC47911E0827490007476B /* LogInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
+		94CC47931E0829510007476B /* LogInOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOperation.swift; sourceTree = "<group>"; };
 		BE56CD771DE305C60082CC44 /* Simple 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Simple 3.xcdatamodel"; sourceTree = "<group>"; };
 		BE607F571D352A0000D02127 /* Action+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Action+CoreDataProperties.swift"; path = "Model/Action+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE607F581D352A0000D02127 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Model/Action.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				9453AC2D1E04152000F09737 /* SignUpOperation.swift */,
+				94CC47931E0829510007476B /* LogInOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				9453AC311E04152500F09737 /* SignUpRequest.swift */,
+				94CC47911E0827490007476B /* LogInRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				9453AC391E04154400F09737 /* NetworkLayerConfiguration.swift in Sources */,
 				02E521E81D340E3C007949E6 /* Model.swift in Sources */,
 				BE871C311DF8042400C50322 /* CelyLoginViewController.swift in Sources */,
+				94CC47941E0829510007476B /* LogInOperation.swift in Sources */,
 				9453AC321E04152500F09737 /* SignUpRequest.swift in Sources */,
 				BE607F5A1D352A0000D02127 /* Action.swift in Sources */,
 				BEF8A3391D23B9A00042F601 /* AppDelegate.swift in Sources */,
@@ -672,6 +679,7 @@
 				BE607F5E1D352A9300D02127 /* CheckBox.swift in Sources */,
 				9453AC361E04152E00F09737 /* UserResponseMapping.swift in Sources */,
 				BE607F641D36832300D02127 /* SCLAlertView.swift in Sources */,
+				94CC47921E0827490007476B /* LogInRequest.swift in Sources */,
 				9453AC2A1E0414F800F09737 /* UserItem.swift in Sources */,
 				9453AC231E0414C700F09737 /* NetworkService.swift in Sources */,
 				BE871C2D1DF8042400C50322 /* CelyStorage.swift in Sources */,

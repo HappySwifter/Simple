@@ -14,25 +14,25 @@ class NetworkService {
     
     func makeRequest(for url: URL, method: HTTPMethod, query type: QueryType,
                      params: [String: Any]? = nil,
-                     headers: [String: String]? = nil,
+                     headers: HTTPHeaders? = nil,
                      success: ((Any) -> ())? = nil,
                      failure: ((_ error: String?, _ responseCode: Int?) -> Void)? = nil) {
         
 
-        task = Alamofire.request(url, method: method, parameters: params)
+        
+        task = Alamofire.request(url, method: method, parameters: params, headers: headers)
             .validate(statusCode: successCodes)
             .responseJSON(completionHandler: { (response) in
             
-                if let date = response.response?.allHeaderFields["Date"] {
-                    let def = UserDefaults.standard
-                    def.set(date, forKey: "LastServerModDate")
-                    def.synchronize()
-                }
+            if let date = response.response?.allHeaderFields["Date"] {
+                let def = UserDefaults.standard
+                def.set(date, forKey: "LastServerModDate")
+                def.synchronize()
+            }
                 
             switch response.result {
             case .success(let value):
                 success?(value)
-                
             case .failure(let error):
                 print("😡 \(url) \(error.localizedDescription)")
                 failure?(error.localizedDescription, response.response?.statusCode)

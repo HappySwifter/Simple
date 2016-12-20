@@ -103,13 +103,23 @@ class GoalsVC: UITableViewController {
     
     
     func login() {
-        Networking.login { (success) in
-            if success {
-                Networking.downloadAllData(completion: { [weak self] (success) in
-                    self?.refreshData()
-                })
-            }
+//        Networking.login { (success) in
+//            if success {
+//                
+//            }
+//        }
+        
+        let loginOp = LogInOperation(email: userCredentials["email"]!, password: userCredentials["password"]!)
+        loginOp.success = { item in
+            Networking.downloadAllData(completion: { [weak self] (success) in
+                self?.refreshData()
+            })
         }
+        
+        loginOp.failure = { error in
+            
+        }
+        loginOp.start()
     }
     
     func modelVersion() {

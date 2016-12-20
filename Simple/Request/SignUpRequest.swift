@@ -35,6 +35,6 @@ final class SignUpRequest: BackendAPIRequest {
     }
     
     var headers: [String: String]? {
-        return defaultJSONHeaders()
+        return nil
     }
 }
