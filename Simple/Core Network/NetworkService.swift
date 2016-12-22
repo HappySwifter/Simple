@@ -18,7 +18,7 @@ class NetworkService {
                      success: ((Any) -> ())? = nil,
                      failure: ((_ error: String?, _ responseCode: Int?) -> Void)? = nil) {
         
-
+        let query = makeQuery(for: url, params: params, type: type)
         
         task = Alamofire.request(url, method: method, parameters: params, headers: headers)
             .validate(statusCode: successCodes)

@@ -8,10 +8,3 @@ protocol BackendAPIRequest {
     var parameters: [String: Any]? { get }
     var headers: HTTPHeaders? { get }
 }
-
-extension BackendAPIRequest {
-    
-    func defaultJSONHeaders() -> [String: String] {
-        return ["Content-Type": "application/json"]
-    }
-}
